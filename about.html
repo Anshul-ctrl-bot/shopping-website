@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="product.css">
+    <style>
+        /* Styling for the image container */
+        .image-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Main Content Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #1388c7;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            margin: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Media Queries for Larger Screens (Tablet and Above) */
+        @media screen and (min-width: 768px) {
+            .text-overlay {
+                font-size: 3em; /* Increase font size on larger screens */
+            }
+
+            h3, p {
+                font-size: 1.2em; /* Larger font size for paragraphs */
+            }
+
+            nav a {
+                font-size: 18px; /* Increase font size for navigation items */
+                padding: 12px 25px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+        }
+
+        /* Media Queries for Mobile Screens (Portrait) */
+        @media screen and (max-width: 600px) {
+            .text-overlay {
+                font-size: 1.5em; /* Smaller font size for mobile */
+            }
+
+            header h1 {
+                font-size: 2em; /* Adjust header size */
+            }
+
+            nav a {
+                font-size: 14px; /* Adjust nav font size */
+                padding: 8px 15px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
+
+            h3, p {
+                font-size: 1em; /* Smaller text for mobile devices */
+            }
+        }
+
+        /* Media Queries for Extra Small Screens (Very Small Mobile) */
+        @media screen and (max-width: 400px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .text-overlay {
+                font-size: 1.2em;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            footer {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Elite Sports Store</h1>
+        <button><a href="login.html">login</a></button>
+        <button><a href="sign up.html">sign up</a></button>
+        <marquee><h2>Welcome to Our Shopping Website</h2></marquee>
+    </header>
+
+    <nav>
+        <button><a href="home.html">Home</a></button>
+        <button><a href="products.html">Products</a></button>
+        <button><a href="contact.html">Contact</a></button>
+        <button><a href="about.html">About Us</a></button>
+        <button><a href="my cart.html">My Cart</a></button>
+    </nav>
+
+    <div class="image-container">
+        <img src="http://muffingroup.com/blog/wp-content/uploads/2015/12/muffingroup_blog_bgsection2.jpg" alt="Accomplishments Image">
+        <div class="text-overlay">Our accomplishments are a result of hard work, team spirit, and determination</div>
+    </div>
+
+    <main>
+        <section>
+            <h3><b>Welcome to Elite Sports Store, your ultimate destination for premium football shoes! We are passionate about bringing the best in sportswear to athletes and enthusiasts alike. With a wide selection of top brands like Nike, Adidas, and Puma, our mission is to provide high-quality footwear designed for performance, comfort, and style. Whether you're a professional player or a weekend warrior, we aim to equip you with the perfect pair to elevate your game. At Elite Sports Store, we believe in empowering every player to reach their potential on the field.</b></h3>
+        </section>
+
+        <section>
+            <h3><b>Our curated range features globally renowned brands like Nike, Adidas, and Puma, ensuring every player, from beginners to professionals, finds the perfect fit to enhance their performance. Whether you're chasing glory on the pitch or simply looking for durable and stylish footwear, we aim to provide a seamless shopping experience tailored to your needs.</b></h3>
+        </section>
+
+        <section>
+            <h3><b>Driven by a love for the beautiful game, we continually strive to deliver not only top-tier products but also exceptional customer service. At Elite Sports Store, we are more than a retailer—we are your trusted partner on the road to victory. Step into excellence with us and elevate your game to the next level.</b></h3>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Shopping Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

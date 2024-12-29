@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        header button {
+            background-color: #555;
+            border: none;
+            color: white;
+            padding: 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        header button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header button:hover {
+            background-color: #777;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .cart-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .cart-item img {
+            max-width: 100px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item h3 {
+            margin: 0 0 10px;
+        }
+
+        .cart-item p {
+            margin: 5px 0;
+        }
+
+        .cart-item button {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .cart-item button:hover {
+            background-color: #ff6666;
+        }
+
+        #cartSummary {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        #cartSummary h3 {
+            margin: 0 0 15px;
+        }
+
+        #checkoutButton {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #checkoutButton:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        /* Media Queries for Tablets and Larger Screens */
+        @media screen and (min-width: 768px) {
+            header h2 {
+                font-size: 2em;
+            }
+
+            .cart-item {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .cart-item img {
+                margin-right: 15px;
+            }
+
+            #cartSummary {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+            }
+
+            #checkoutButton {
+                padding: 15px 30px;
+            }
+        }
+
+        /* Media Queries for Mobile Screens */
+        @media screen and (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header h2 {
+                font-size: 1.3em;
+                margin-bottom: 10px;
+            }
+
+            header button {
+                font-size: 12px;
+                padding: 8px;
+                margin: 5px 0;
+            }
+
+            .cart-item {
+                padding: 10px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item h3 {
+                font-size: 1.2em;
+            }
+
+            #cartSummary {
+                padding: 10px;
+            }
+
+            #checkoutButton {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+        }
+
+        /* Media Queries for Extra Small Screens (Phones) */
+        @media screen and (max-width: 400px) {
+            header h2 {
+                font-size: 1.2em;
+            }
+
+            header button {
+                font-size: 11px;
+                padding: 6px;
+            }
+
+            .cart-item h3 {
+                font-size: 1em;
+            }
+
+            .cart-item p {
+                font-size: 0.9em;
+            }
+
+            #checkoutButton {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Your Shopping Cart</h2>
+        <button><a href="home.html">Home</a></button>
+        <button><a href="products.html">Products</a></button>
+        <button><a href="contact.html">Contact</a></button>
+        <button><a href="about.html">About Us</a></button>
+        <button><a href="login.html">Logout</a></button>
+    </header>
+
+    <main>
+        <section id="cartItems"></section>
+        <section id="cartSummary"></section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Shopping Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.onload = function () {
+            // Retrieve cart from localStorage
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cartItems');
+            const cartSummaryContainer = document.getElementById('cartSummary');
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<h2>Your cart is empty!</h2>';
+                return;
+            }
+
+            let totalSum = 0;
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+
+                const productImage = item.image
+                    ? `<img src="${item.image}" alt="${item.name}">`
+                    : '';
+                const quantity = item.quantity || 1;
+                const total = item.price ? item.price * quantity : 0;
+                totalSum += total;
+
+                cartItem.innerHTML = `
+                    ${productImage}
+                    <h3>${item.name}</h3>
+                    <p>Price: ₹${item.price}</p>
+                    <p>Quantity: ${quantity}</p>
+                    <p>Total: ₹${total}</p>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+
+                cartContainer.appendChild(cartItem);
+            });
+
+            cartSummaryContainer.innerHTML = `
+                <h3>Total Amount: ₹${totalSum}</h3>
+                <button id="checkoutButton">Proceed to Checkout</button>
+            `;
+
+            document.getElementById('checkoutButton').addEventListener('click', () => {
+                window.location.href = 'proceed.html';
+            });
+
+            window.removeFromCart = function (index) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                window.location.reload();
+            };
+        };
+    </script>
+</body>
+</html>

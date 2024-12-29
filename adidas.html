@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website</title>
+    <style>
+        /* General styles for the layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('back 1.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        header button {
+            margin: 10px;
+        }
+
+        marquee h2 {
+            color: white;
+            font-size: 1.5em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav button {
+            padding: 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            margin: 5px;
+        }
+
+        nav button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section.category {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        section.category div {
+            text-align: center;
+        }
+
+        section.category img {
+            width: 150px;
+            height: 150px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            width: 30%;
+            margin: 10px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 1.2em;
+        }
+
+        .product select,
+        .product input {
+            margin: 10px 0;
+        }
+
+        .product button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function addToCart(productName, productPrice, sizeId, quantityId) {
+            const size = document.getElementById(sizeId).value;
+            const quantity = document.getElementById(quantityId).value;
+
+            // Retrieve the product image URL
+            const productImage = event.target.parentElement.querySelector("img").src;
+
+            const cartItem = {
+                product: productName,
+                price: productPrice,
+                size: size,
+                quantity: parseInt(quantity),
+                image: productImage, // Save the image URL
+            };
+
+            const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+            existingCart.push(cartItem);
+            localStorage.setItem("cart", JSON.stringify(existingCart));
+
+            alert(`${productName} added to cart!`);
+        }
+    </script>
+</head>
+<body background="back 1.jpg">
+    <header>
+        <h1>Elite Sports Store</h1>
+        <button><a href="login.html">Login</a></button>
+        <button><a href="sign up.html">Sign Up</a></button>
+        <marquee><h2>Welcome to Our Shopping Website</h2></marquee>
+    </header>
+    <nav>
+        <button><a href="home.html">Home</a></button>
+        <button><a href="products.html">Products</a></button>
+        <button><a href="contact.html">Contact</a></button>
+        <button><a href="about.html">About Us</a></button>
+        <button><a href="my cart.html">My Cart</a></button>
+    </nav>
+    <section class="category">
+        <div>
+            <a href="nike.html"><img src="nike.jpg" alt="Nike Category"></a>
+            <h1>NIKE</h1>
+        </div>
+        <div>
+            <a href="adidas.html"><img src="adidas.jpg" alt="Adidas Category"></a>
+            <h1>ADIDAS</h1>
+        </div>
+        <div>
+            <a href="puma.html"><img src="puma.jpg" alt="Puma Category"></a>
+            <h1>PUMA</h1>
+        </div>
+    </section>
+    <main>
+        <section class="container" id="products">
+            <div class="product">
+                <img src="adidas 1.jpg" alt="adidas 10.o">
+                <h3>adidas 10.o</h3>
+                <p>Price: ₹2400</p>
+                <label for="size1">Size:</label>
+                <select id="size1">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity1">Quantity:</label>
+                <input type="number" id="quantity1" name="quantity1" min="1" max="10" value="1">
+                <button onclick="addToCart('adidas 10.o', 2400, 'size1', 'quantity1')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="adidas 2.jpg" alt="adidas 17s">
+                <h3>adidas 17s</h3>
+                <p>Price: ₹2000</p>
+                <label for="size2">Size:</label>
+                <select id="size2">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity2">Quantity:</label>
+                <input type="number" id="quantity2" name="quantity2" min="1" max="10" value="1">
+                <button onclick="addToCart('adidas 17s', 2000, 'size2', 'quantity2')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="adidas 3.jpg" alt="adidas 2.4 FG">
+                <h3>adidas 2.4 FG</h3>
+                <p>Price: ₹2750</p>
+                <label for="size3">Size:</label>
+                <select id="size3">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity3">Quantity:</label>
+                <input type="number" id="quantity3" name="quantity3" min="1" max="10" value="1">
+                <button onclick="addToCart('adidas 2.4 FG', 2750, 'size3', 'quantity3')">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Shopping Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

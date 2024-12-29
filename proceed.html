@@ -1,0 +1,229 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<style>
+    /* General body styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header styles */
+    header {
+        background-color: #333;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    /* Navigation styling */
+    nav {
+        text-align: center;
+        background-color: #444;
+        padding: 10px 0;
+    }
+
+    nav button a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+    }
+
+    /* Title styling */
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* Payment details section */
+    #payment-details {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #payment-details h2 {
+        text-align: center;
+    }
+
+    /* Form groups for inputs */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    /* Submit button styles */
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Footer styles */
+    footer {
+        text-align: center;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+        /* For screens smaller than 768px (tablets and mobile devices) */
+        #payment-details {
+            padding: 15px;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav button a {
+            padding: 8px 15px;
+            margin: 0 5px;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 8px;
+        }
+
+        button[type="submit"] {
+            padding: 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* For screens smaller than 480px (mostly mobile devices) */
+        header h1 {
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 22px;
+        }
+
+        nav button a {
+            padding: 6px 12px;
+            margin: 0 4px;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 7px;
+        }
+
+        button[type="submit"] {
+            padding: 15px;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Elite Sports Store</h1>
+        <button><a href="login.html">login</a></button>
+        <button><a href="sign up.html">sign up</a></button>
+        <marquee><h2>Welcome to Our Shopping Website</h2></marquee>
+    </header>
+    
+    <nav>
+        <button><a href="home.html">Home</a></button>
+        <button><a href="products.html">Products</a></button>
+        <button><a href="contact.html">Contact</a></button>
+        <button><a href="about.html">About Us</a></button>
+        <button><a href="my cart.html">My Cart</a></button>
+    </nav>
+
+    <h1>Payment Details</h1>
+
+    <main>
+        <section id="payment-details">
+            <h2>Enter Your Payment Information</h2>
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="Enter your card number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="expiry-date">Expiry Date:</label>
+                    <input type="month" id="expiry-date" name="expiry-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="Enter CVV" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Billing Address:</label>
+                    <textarea id="address" name="address" placeholder="Enter your billing address" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit"><a href="success.html">Submit Payment</a></button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Form submission logic (for demonstration, you can replace it with actual payment gateway logic)
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Payment submitted successfully!');
+        });
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Shopping Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

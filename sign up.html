@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Page</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #007bff; /* Blue header */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            background-color: #0056b3; /* Darker blue navigation bar */
+            overflow: hidden;
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+        }
+
+        nav a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #003d80; /* Even darker blue on hover */
+        }
+
+        .content-container {
+            max-width: 400px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Blue button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Elite Sports Store</h1>
+        <p>Create an Account to Start Shopping</p>
+    </header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a href="my cart.html">My Cart</a>
+    </nav>
+    <div class="content-container">
+        <div class="login-container">
+            <h2>Sign Up</h2>
+            <form id="signup-form" onsubmit="return handleSignUp(event)">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleSignUp(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Retrieve stored users or initialize an empty array
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Check if the username or email already exists
+            if (users.some(user => user.username === username || user.email === email)) {
+                alert("Username or Email already exists. Please log in.");
+                window.location.href = "login.html"; // Redirect to login page
+                return false;
+            }
+
+            // Add the new user
+            users.push({ username, email, password });
+
+            // Save users to localStorage
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert("Sign-up successful! You can now log in.");
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+</body>
+</html>

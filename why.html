@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website</title>
+    <link rel="stylesheet" href="product.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('back 1.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color:rgb(51, 56, 56);
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 0;
+        }
+
+        nav button {
+            margin: 0 10px;
+        }
+
+        nav button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .category {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .category div {
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+        }
+
+        @media (orientation: landscape) {
+            .category {
+                flex-direction: row;
+            }
+
+            .container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (orientation: portrait) {
+            .category {
+                flex-direction: column;
+            }
+
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="Screenshot.png" alt="Elite Sports Store Logo" class="logo">
+            <b><h1>Elite Sports Store</h1></b>
+            <div>
+                <button><a href="login.html">Login</a></button>
+                <button><a href="sign up.html">Sign Up</a></button>
+            </div>
+        </div>
+        <marquee><h2>Welcome to Our Shopping Website</h2></marquee>
+    </header>
+    <nav>
+        <button><a href="home.html">Home</a></button>
+        <button><a href="products.html">Products</a></button>
+        <button><a href="contact.html">Contact</a></button>
+        <button><a href="about.html">About Us</a></button>
+        <button><a href="my cart.html">My Cart</a></button>
+    </nav>
+    <section class="category">
+        <div>
+            <a href="nike.html"><img src="nike.jpg" alt="Nike Category"></a>
+            <h1>NIKE</h1>
+        </div>
+        <div>
+            <a href="adidas.html"><img src="adidas.jpg" alt="Adidas Category"></a>
+            <h1>ADIDAS</h1>
+        </div>
+        <div>
+            <a href="puma.html"><img src="puma.jpg" alt="Puma Category"></a>
+            <h1>PUMA</h1>
+        </div>
+    </section>
+    <main>
+        <section class="container" id="products">
+            <!-- Product 1 -->
+            <div class="product">
+                <img src="boots 1.jpg" alt="nike mercurial">
+                <h3>nike mercurial</h3>
+                <p>Price: ₹2400</p>
+                <label for="size1">Select Size:</label>
+                <select id="size1">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity1">Quantity:</label>
+                <input type="number" id="quantity1" value="1" min="1" max="10">
+                <button onclick="addToCart('Nike Mercurial', 2400, 'size1', 'quantity1', 'boots 1.jpg')">Add to Cart</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="product">
+                <img src="boots 2.jpg" alt="nike vapours">
+                <h3>nike vapours</h3>
+                <p>Price: ₹2000</p>
+                <label for="size2">Select Size:</label>
+                <select id="size2">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity2">Quantity:</label>
+                <input type="number" id="quantity2" value="1" min="1" max="10">
+                <button onclick="addToCart('Nike Vapours', 2000, 'size2', 'quantity2', 'boots 2.jpg')">Add to Cart</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="product">
+                <img src="puma 1.jpg" alt="puma one 19.1">
+                <h3>puma one 19.1</h3>
+                <p>Price: ₹2400</p>
+                <label for="size3">Select Size:</label>
+                <select id="size3">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity3">Quantity:</label>
+                <input type="number" id="quantity3" value="1" min="1" max="10">
+                <button onclick="addToCart('Puma One 19.1', 2400, 'size3', 'quantity3', 'puma 1.jpg')">Add to Cart</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="product">
+                <img src="boots 4.jpg" alt="nike magista II">
+                <h3>nike magista</h3>
+                <p>Price: ₹2500</p>
+                <label for="size4">Select Size:</label>
+                <select id="size4">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity4">Quantity:</label>
+                <input type="number" id="quantity4" value="1" min="1" max="10">
+                <button onclick="addToCart('Nike Magista', 2500, 'size4', 'quantity4', 'boots 4.jpg')">Add to Cart</button>
+            </div>
+            <!-- Product 5 -->
+            <div class="product">
+                <img src="boots 5.jpg" alt="nike superfly 7">
+                <h3>nike superfly 7</h3>
+                <p>Price: ₹2500</p>
+                <label for="size5">Select Size:</label>
+                <select id="size5">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity5">Quantity:</label>
+                <input type="number" id="quantity5" value="1" min="1" max="10">
+                <button onclick="addToCart('Nike Superfly 7', 2500, 'size5', 'quantity5', 'boots 5.jpg')">Add to Cart</button>
+            </div>
+            <!-- Product 6 -->
+            <div class="product">
+                <img src="boots 6.jpg" alt="nike mercurial vortex II">
+                <h3>nike mercurial vortex II</h3>
+                <p>Price: ₹1500</p>
+                <label for="size6">Select Size:</label>
+                <select id="size6">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity6">Quantity:</label>
+                <input type="number" id="quantity6" value="1" min="1" max="10">
+                <button onclick="addToCart('Nike Mercurial Vortex II', 1500, 'size6', 'quantity6', 'boots 6.jpg')">Add to Cart</button>
+            </div>
+            <!-- Product 7 -->
+            <div class="product">
+                <img src="puma 3.jpg" alt="puma ultra 2.4 FG">
+                <h3>puma ultra 2.4 FG</h3>
+                <p>Price: ₹2750</p>
+                <label for="size7">Select Size:</label>
+                <select id="size7">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity7">Quantity:</label>
+                <input type="number" id="quantity7" value="1" min="1" max="10">
+                <button onclick="addToCart('Puma Ultra 2.4 FG', 2750, 'size7', 'quantity7', 'puma 3.jpg')">Add to Cart</button>
+            </div>
+              <!-- Product 8 -->
+              <div class="product">
+                <img src="boots 8.jpg" alt="nike phantom GX">
+                <h3>nike phantom GX</h3>
+                <p>Price: ₹2900</p>
+                <label for="size8">Select Size:</label>
+                <select id="size8">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="quantity8">Quantity:</label>
+                <input type="number" id="quantity8" value="1" min="1" max="10">
+                <button onclick="addToCart('Nike Phantom GX', 2900, 'size8', 'quantity8', 'boots 8.jpg')">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Shopping Website. All rights reserved.</p>
+    </footer>
+    <script>
+        function addToCart(productName, price, sizeId, quantityId, imageSrc) {
+            const selectedSize = document.getElementById(sizeId).value; // Get the selected size
+            const quantity = parseInt(document.getElementById(quantityId).value); // Get the selected quantity
+            const cartItem = {
+                product: productName,
+                price: price,
+                size: selectedSize,
+                quantity: quantity,
+                productImage: imageSrc
+            };
+
+            // Get existing cart from localStorage or initialize as empty array
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add new item to cart
+            cart.push(cartItem);
+
+            // Save updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert(`${productName} (Size: ${selectedSize}, Quantity: ${quantity}) has been added to your cart.`);
+        }
+    </script>
+</body>
+</html>
+function addToCart(productName, price, sizeId, quantityId, imageSrc) {
+    const selectedSize = document.getElementById(sizeId).value; // Get the selected size
+    const quantity = parseInt(document.getElementById(quantityId).value); // Get the selected quantity
+    const cartItem = {
+        product: productName,
+        price: price,
+        size: selectedSize,
+        quantity: quantity,
+        productImage: imageSrc  // Store the image source
+    };
+
+    // Get existing cart from localStorage or initialize as empty array
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add new item to cart
+    cart.push(cartItem);
+
+    // Save updated cart to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`${productName} (Size: ${selectedSize}, Quantity: ${quantity}) has been added to your cart.`);

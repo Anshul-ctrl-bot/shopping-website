@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        header {
+            background-color: deepskyblue;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #0a8eb3;
+            width: 100%;
+            padding: 1em 0;
+            position: fixed;
+            top: 60px;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content-container {
+            margin-top: 140px; /* Adjust to make space for the navigation bar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #333;
+            display: block;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        p a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body background="back 1.jpg">
+    <header>
+        <h1>Elite Sports Store</h1>
+        <p>Welcome to Our Shopping Website</p>
+    </header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a href="my-cart.html">My Cart</a>
+    </nav>
+    <div class="content-container">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="login-form" onsubmit="return validateLogin(event)">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <p>Don't have an account? <a href="sign up.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Retrieve stored users from localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Check if the user exists and the password matches
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                alert("Login successful!");
+                window.location.href = "home.html"; // Redirect to home page
+            } else {
+                alert("Invalid username or password. Please sign up if you don't have an account.");
+            }
+        }
+    </script>
+</body>
+</html>
