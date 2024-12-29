@@ -5,120 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
-        /* General Styles */
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            height: 100vh;
         }
-
         header {
-            background-color: #007bff;
+            background-color: deepskyblue;
             color: white;
+            padding: 1em 0;
             text-align: center;
-            padding: 20px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
         }
-
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        header p {
-            margin: 5px 0 0;
-            font-size: 1rem;
-        }
-
         .content-container {
+            margin-top: 140px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            padding: 20px;
-        }
-
-        .login-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            flex-direction: column; /* Changed from row to column to stack elements vertically */
         }
-
-        .login-container h2 {
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
-            margin-bottom: 20px;
-            color: #007bff;
         }
-
         .input-group {
             margin-bottom: 15px;
+            text-align: left;
         }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
         .login-btn {
             width: 100%;
             padding: 10px;
-            font-size: 1rem;
+            background-color: #4CAF50;
             color: white;
-            background-color: #007bff;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
-
-        .login-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .login-btn:active {
-            background-color: #003f87;
-        }
-
-        .login-container p {
-            text-align: center;
+        p {
             margin-top: 15px;
+            font-size: 14px;
         }
-
-        .login-container a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .login-container a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            header p {
-                font-size: 0.9rem;
-            }
-
-            .login-container {
-                padding: 20px;
-            }
+        /* Added margin to the image */
+        .login-image {
+            margin-top: 20px; /* Adjust the margin as needed */
         }
     </style>
 </head>
@@ -127,7 +67,6 @@
         <h1>Elite Sports Store</h1>
         <p>Welcome to Our Shopping Website</p>
     </header>
-    
     <div class="content-container">
         <div class="login-container">
             <h2>Login</h2>
@@ -142,8 +81,10 @@
                 </div>
                 <button type="submit" class="login-btn">Login</button>
             </form>
-            <p>Don't have an account? <a href="sign up.html">Sign up</a></p>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
         </div>
+        <!-- Image with margin-top -->
+        <img src="download.jpeg" class="login-image">
     </div>
 
     <script>
