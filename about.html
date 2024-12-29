@@ -6,36 +6,12 @@
     <title>About Us</title>
     <link rel="stylesheet" href="product.css">
     <style>
-        /* Styling for the image container */
-        .image-container {
-            position: relative;
-            width: 100%;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: auto;
-        }
-
-        .text-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2em;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* Main Content Styling */
+        /* Styling remains the same */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-
         header {
             text-align: center;
             margin-bottom: 20px;
@@ -43,17 +19,16 @@
             color: white;
             padding: 10px 0;
         }
-
         h1, h2 {
             margin: 0;
         }
-
         nav {
             text-align: center;
             margin-bottom: 20px;
             background-color: #1388c7;
+            overflow-x: auto;
+            white-space: nowrap;
         }
-
         nav a {
             display: inline-block;
             padding: 10px 20px;
@@ -64,19 +39,45 @@
             font-size: 16px;
             border-radius: 5px;
         }
-
         nav a:hover {
             background-color: #45a049;
         }
-
         main {
             padding: 20px;
         }
-
         section {
             margin-bottom: 20px;
         }
-
+        form {
+            display: flex;
+            flex-direction: column;  /* Ensure vertical stack */
+            max-width: 400px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
         footer {
             text-align: center;
             padding: 10px 0;
@@ -84,108 +85,110 @@
             color: white;
         }
 
-        /* Media Queries for Larger Screens (Tablet and Above) */
-        @media screen and (min-width: 768px) {
-            .text-overlay {
-                font-size: 3em; /* Increase font size on larger screens */
-            }
-
-            h3, p {
-                font-size: 1.2em; /* Larger font size for paragraphs */
+        /* Media Queries for Landscape Orientation */
+        @media screen and (orientation: landscape) {
+            header {
+                padding: 15px 0;
             }
 
             nav a {
-                font-size: 18px; /* Increase font size for navigation items */
+                font-size: 18px;
                 padding: 12px 25px;
             }
 
-            header h1 {
-                font-size: 2.5em;
+            form {
+                flex-direction: column;  /* Still keeping it vertical in landscape */
+                gap: 20px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            footer {
+                font-size: 14px;
+            }
+
+            /* Adjusting the text size and layout of contact information */
+            #contact-info p {
+                font-size: 18px;
             }
         }
 
-        /* Media Queries for Mobile Screens (Portrait) */
+        /* Media Queries for Small Screens (Portrait or Small Devices) */
         @media screen and (max-width: 600px) {
-            .text-overlay {
-                font-size: 1.5em; /* Smaller font size for mobile */
-            }
-
-            header h1 {
-                font-size: 2em; /* Adjust header size */
-            }
-
             nav a {
-                font-size: 14px; /* Adjust nav font size */
+                font-size: 14px;
                 padding: 8px 15px;
             }
 
-            footer {
-                font-size: 12px;
+            form {
+                max-width: 100%;
             }
 
-            h3, p {
-                font-size: 1em; /* Smaller text for mobile devices */
-            }
-        }
-
-        /* Media Queries for Extra Small Screens (Very Small Mobile) */
-        @media screen and (max-width: 400px) {
-            header h1 {
-                font-size: 1.5em;
-            }
-
-            .text-overlay {
-                font-size: 1.2em;
-            }
-
-            nav a {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-
-            footer {
-                font-size: 10px;
+            form input,
+            form textarea {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Elite Sports Store</h1>
-        <button><a href="index.html">login</a></button>
-        <button><a href="sign up.html">sign up</a></button>
-        <marquee><h2>Welcome to Our Shopping Website</h2></marquee>
+        <h1>Elite Sports Store</h1><button><a href="index.html">login</a></button><button><a href="sign up.html">sign up</a></button>
+        
+            <marquee><b>Welcome to Our Shopping Website</b></marquee>
     </header>
-
+    
     <nav>
-        <button><a href="home.html">Home</a></button>
-        <button><a href="products.html">Products</a></button>
-        <button><a href="contact.html">Contact</a></button>
-        <button><a href="about.html">About Us</a></button>
-        <button><a href="my cart.html">My Cart</a></button>
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a href="my cart.html">My Cart</a>
     </nav>
-
-    <div class="image-container">
-        <img src="http://muffingroup.com/blog/wp-content/uploads/2015/12/muffingroup_blog_bgsection2.jpg" alt="Accomplishments Image">
-        <div class="text-overlay">Our accomplishments are a result of hard work, team spirit, and determination</div>
-    </div>
-
+    
     <main>
-        <section>
-            <h3><b>Welcome to Elite Sports Store, your ultimate destination for premium football shoes! We are passionate about bringing the best in sportswear to athletes and enthusiasts alike. With a wide selection of top brands like Nike, Adidas, and Puma, our mission is to provide high-quality footwear designed for performance, comfort, and style. Whether you're a professional player or a weekend warrior, we aim to equip you with the perfect pair to elevate your game. At Elite Sports Store, we believe in empowering every player to reach their potential on the field.</b></h3>
+        <section id="contact-form">
+            <h1>Contact Us</h1>
+            <p>If you have any questions or need assistance, feel free to reach out to us. We're here to help!</p>
+
+            <form id="contact-form" method="POST" onsubmit="handleSubmit(event)">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Your email address">
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required placeholder="Subject of your message">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
         </section>
 
-        <section>
-            <h3><b>Our curated range features globally renowned brands like Nike, Adidas, and Puma, ensuring every player, from beginners to professionals, finds the perfect fit to enhance their performance. Whether you're chasing glory on the pitch or simply looking for durable and stylish footwear, we aim to provide a seamless shopping experience tailored to your needs.</b></h3>
-        </section>
-
-        <section>
-            <h3><b>Driven by a love for the beautiful game, we continually strive to deliver not only top-tier products but also exceptional customer service. At Elite Sports Store, we are more than a retailer—we are your trusted partner on the road to victory. Step into excellence with us and elevate your game to the next level.</b></h3>
+        <section id="contact-info">
+            <h2>Our Contact Information</h2>
+            <p><strong>Address:</strong> 123 Mall Road Kamptee Street, Nagpur, India</p>
+            <p><strong>Email:</strong> Elitesportsstore@gmail.com</p>
+            <p><strong>Phone:</strong> +1 800 123 4567</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Shopping Website. All rights reserved.</p>
+        <p>&copy; 2024 E-commerce Website. All rights reserved.</p>
     </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            // Optionally, you can perform form validation here before redirecting
+
+            // Redirect to the submit page after form submission
+            window.location.href = "submit.html";
+        }
+    </script>
 </body>
 </html>
