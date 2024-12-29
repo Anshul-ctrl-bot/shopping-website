@@ -134,7 +134,7 @@
             // Check if the username or email already exists
             if (users.some(user => user.username === username || user.email === email)) {
                 alert("Username or Email already exists. Please log in.");
-                window.location.href = "login.html"; // Redirect to login page
+                window.location.href = "index.html"; // Redirect to login page
                 return false;
             }
 
@@ -145,7 +145,7 @@
             localStorage.setItem('users', JSON.stringify(users));
 
             alert("Sign-up successful! You can now log in.");
-            window.location.href = "login.html"; // Redirect to login page
+            window.location.href = "index.html"; // Redirect to login page
         }
     </script>
 </body>
