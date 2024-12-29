@@ -93,28 +93,18 @@ footer {
     color: white;
 }
 
-@media (orientation: landscape) {
-    .category {
-        flex-direction: row;
-    }
-
-    .container {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (orientation: portrait) {
-    .category {
-        flex-direction: column;
-    }
-
-    .container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Additional media query for mobile devices */
 @media (max-width: 767px) {
+    /* Adjust button styles for mobile portrait view */
+    nav button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* Adjust the category layout for logos */
     .category {
         justify-content: space-between;
         padding: 10px;
@@ -123,6 +113,13 @@ footer {
     .category div {
         flex: 1;
         max-width: 30%; /* Limit the maximum width for images */
+        margin: 5px 0;
+    }
+
+    .category img {
+        width: 100%;
+        height: auto;
+        max-height: 150px; /* Ensure logos are appropriately sized for mobile */
     }
 
     .container {
@@ -150,11 +147,11 @@ footer {
         <marquee><h2>Welcome to Our Shopping Website</h2></marquee>
     </header>
     <nav>
-        <button><a href="home.html">Home</a></button>
-        <button><a href="products.html">Products</a></button>
-        <button><a href="contact.html">Contact</a></button>
-        <button><a href="about.html">About Us</a></button>
-        <button><a href="my cart.html">My Cart</a></button>
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a href="my cart.html">My Cart</a>
     </nav>
     <section class="category">
         <div>
