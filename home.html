@@ -6,99 +6,135 @@
     <title>Shopping Website</title>
     <link rel="stylesheet" href="product.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: url('back 1.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
+       body {
+    margin: 0;
+    padding: 0;
+    background: url('back 1.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            background-color:rgb(51, 56, 56);
-            color: white;
-        }
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(51, 56, 56);
+    color: white;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
 
-        header button a {
-            text-decoration: none;
-            color: white;
-        }
+header button a {
+    text-decoration: none;
+    color: white;
+}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 10px 0;
-        }
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
+}
 
-        nav button {
-            margin: 0 10px;
-        }
+nav button {
+    margin: 0 10px;
+}
 
-        nav button a {
-            text-decoration: none;
-            color: white;
-        }
+nav button a {
+    text-decoration: none;
+    color: white;
+}
 
-        .category {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
+.category {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap; /* Allow the items to wrap in mobile view */
+}
 
-        .category div {
-            text-align: center;
-        }
+.category div {
+    text-align: center;
+}
 
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
+.category img {
+    width: 100%;
+    max-width: 200px; /* Set a maximum size for the images */
+    height: auto; /* Ensure images scale proportionally */
+}
 
-        .product {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-        }
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: white;
-        }
+.product {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
 
-        @media (orientation: landscape) {
-            .category {
-                flex-direction: row;
-            }
+.product img {
+    width: 100%; /* Ensure images scale correctly */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 300px; /* Limit the height to prevent large images from affecting layout */
+}
 
-            .container {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
 
-        @media (orientation: portrait) {
-            .category {
-                flex-direction: column;
-            }
+@media (orientation: landscape) {
+    .category {
+        flex-direction: row;
+    }
 
-            .container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (orientation: portrait) {
+    .category {
+        flex-direction: column;
+    }
+
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Additional media query for mobile devices */
+@media (max-width: 767px) {
+    .category {
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .category div {
+        flex: 1;
+        max-width: 30%; /* Limit the maximum width for images */
+    }
+
+    .container {
+        grid-template-columns: 1fr; /* Stack products in a single column */
+    }
+
+    .product {
+        padding: 15px;
+        margin: 10px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -278,30 +314,28 @@
         <p>&copy; 2024 Shopping Website. All rights reserved.</p>
     </footer>
     <script>
-    function addToCart(productName, price, sizeId, quantityId, imageSrc) {
-    const selectedSize = document.getElementById(sizeId).value; // Get the selected size
-    const quantity = parseInt(document.getElementById(quantityId).value); // Get the selected quantity
-    const cartItem = {
-        product: productName,
-        price: price,
-        size: selectedSize,
-        quantity: quantity,
-        productImage: imageSrc // Store the image source
-    };
+        function addToCart(productName, price, sizeId, quantityId, imageSrc) {
+            const selectedSize = document.getElementById(sizeId).value; // Get the selected size
+            const quantity = parseInt(document.getElementById(quantityId).value); // Get the selected quantity
+            const cartItem = {
+                product: productName,
+                price: price,
+                size: selectedSize,
+                quantity: quantity,
+                productImage: imageSrc
+            };
 
-    // Get existing cart from localStorage or initialize as empty array
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            // Get existing cart from localStorage or initialize as empty array
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Add new item to cart
-    cart.push(cartItem);
+            // Add new item to cart
+            cart.push(cartItem);
 
-    // Save updated cart to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
+            // Save updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
 
-    alert(`${productName} (Size: ${selectedSize}, Quantity: ${quantity}) has been added to your cart.`);
-}
-
-
-</script>    
+            alert(`${productName} (Size: ${selectedSize}, Quantity: ${quantity}) has been added to your cart.`);
+        }
+    </script>
 </body>
 </html>
