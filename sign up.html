@@ -3,54 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Page</title>
+    <title>Sign-Up Page</title>
     <style>
-        /* General Styling */
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f4f4f9;
+            color: #333;
         }
 
         header {
-            background-color: #007bff; /* Blue header */
+            background-color: #007bff;
             color: white;
             text-align: center;
             padding: 20px 0;
         }
 
-        nav {
-            background-color: #0056b3; /* Darker blue navigation bar */
-            overflow: hidden;
-            display: flex;
-            justify-content: center; /* Center content horizontally */
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
         }
 
-        nav a {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            background-color: #003d80; /* Even darker blue on hover */
+        header p {
+            margin: 5px 0 0;
+            font-size: 1rem;
         }
 
         .content-container {
-            max-width: 400px;
-            margin: 30px auto;
-            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
         }
 
         .login-container h2 {
             text-align: center;
-            color: #333;
+            margin-bottom: 20px;
+            color: #007bff;
         }
 
         .input-group {
@@ -60,34 +61,53 @@
         .input-group label {
             display: block;
             margin-bottom: 5px;
-            color: #555;
+            font-weight: bold;
         }
 
         .input-group input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
+            font-size: 1rem;
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
 
         .login-btn {
-            display: block;
             width: 100%;
             padding: 10px;
-            background-color: #007bff; /* Blue button */
+            font-size: 1rem;
             color: white;
+            background-color: #007bff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
         .login-btn:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3;
+        }
+
+        .login-btn:active {
+            background-color: #003f87;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            .login-container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
-<body>
+<body background="back 1.jpg">
     <header>
         <h1>Elite Sports Store</h1>
         <p>Create an Account to Start Shopping</p>
@@ -97,12 +117,12 @@
             <h2>Sign Up</h2>
             <form id="signup-form" onsubmit="return handleSignUp(event)">
                 <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
@@ -117,8 +137,8 @@
         function handleSignUp(event) {
             event.preventDefault();
 
-            const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
             // Retrieve stored users or initialize an empty array
@@ -132,7 +152,7 @@
             }
 
             // Add the new user
-            users.push({ username, email, password });
+            users.push({ email, username, password });
 
             // Save users to localStorage
             localStorage.setItem('users', JSON.stringify(users));
