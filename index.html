@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
+        /* Styles unchanged */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -151,7 +152,7 @@
                 </div>
                 <button type="submit" class="login-btn">Login</button>
             </form>
-            <p>Don't have an account? <a href="sign up.html">Sign up</a></p>
+            <p>Don't have an account? <a href="sign up.html" onclick="openSignUp(event)">Sign up</a></p>
         </div>
     </div>
 
@@ -175,6 +176,24 @@
                 alert("Invalid username or password. Please sign up if you don't have an account.");
             }
         }
+
+        function openSignUp(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+
+            // Redirect to sign-up page with username pre-filled
+            window.location.href = `sign up.html?username=${encodeURIComponent(username)}`;
+        }
+
+        // If redirected from sign-up, pre-fill login details
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const username = params.get('username');
+
+            if (username) {
+                document.getElementById('username').value = username;
+            }
+        };
     </script>
 </body>
 </html>
