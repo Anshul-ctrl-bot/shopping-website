@@ -6,133 +6,153 @@
     <title>Shopping Website</title>
     <link rel="stylesheet" href="product.css">
     <style>
-       body {
-    margin: 0;
-    padding: 0;
-    background: url('back 1.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: rgb(51, 56, 56);
-    color: white;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-header button a {
-    text-decoration: none;
-    color: white;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 10px 0;
-}
-
-nav button {
-    margin: 0 10px;
-}
-
-nav button a {
-    text-decoration: none;
-    color: white;
-}
-
-.category {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    flex-wrap: wrap; /* Allow the items to wrap in mobile view */
-}
-
-.category div {
-    text-align: center;
-}
-
-.category img {
-    width: 100%;
-    max-width: 200px; /* Set a maximum size for the images */
-    height: auto; /* Ensure images scale proportionally */
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.product {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.product img {
-    width: 100%; /* Ensure images scale correctly */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 300px; /* Limit the height to prevent large images from affecting layout */
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-}
-
-@media (max-width: 767px) {
-    /* Adjust button styles for mobile portrait view */
-    nav button {
-        display: block;
-        width: 100%;
-        margin: 5px 0;
-        padding: 10px;
-        font-size: 16px;
-        text-align: center;
-    }
-
-    /* Adjust the category layout for logos */
-    .category {
-        justify-content: space-between;
-        padding: 10px;
-    }
-
-    .category div {
-        flex: 1;
-        max-width: 30%; /* Limit the maximum width for images */
-        margin: 5px 0;
-    }
-
-    .category img {
-        width: 100%;
-        height: auto;
-        max-height: 150px; /* Ensure logos are appropriately sized for mobile */
-    }
-
-    .container {
-        grid-template-columns: 1fr; /* Stack products in a single column */
-    }
-
-    .product {
-        padding: 15px;
-        margin: 10px;
-    }
-}
-
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('back 1.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: rgb(51, 56, 56);
+            color: white;
+        }
+    
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+    
+        header button a {
+            text-decoration: none;
+            color: white;
+        }
+    
+        nav {
+            display: flex;
+            justify-content: space-evenly; /* Ensure even spacing of items */
+            align-items: center; /* Align items vertically */
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 0;
+            width: 100%; /* Ensure full width */
+            box-sizing: border-box;
+            overflow: visible; /* Prevent cutting off */
+            flex-wrap: wrap; /* Allow the nav items to wrap if necessary */
+        }
+    
+        nav button {
+            margin: 0 10px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap; /* Prevent text from breaking or getting cut off */
+        }
+    
+        nav button:hover {
+            background-color: white;
+            color: black;
+        }
+    
+        nav button a {
+            text-decoration: none;
+            color: inherit;
+        }
+    
+        .category {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+    
+        .category div {
+            text-align: center;
+        }
+    
+        .category img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
+    
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+    
+        .product {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    
+        .product img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+    
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+        }
+    
+        @media (max-width: 767px) {
+            nav {
+                justify-content: space-between; /* Space out items evenly */
+                flex-wrap: nowrap; /* Prevent wrapping of items */
+                overflow-x: auto; /* Allow horizontal scrolling if necessary */
+                padding: 10px 5px; /* Adjust padding for mobile */
+            }
+    
+            nav button {
+                margin: 0 5px; /* Reduce margin for better spacing */
+                font-size: 14px; /* Adjust font size for mobile */
+            }
+    
+            /* Adjust the category layout for mobile */
+            .category {
+                justify-content: space-between;
+                padding: 10px;
+            }
+    
+            .category div {
+                flex: 1;
+                max-width: 30%;
+                margin: 5px 0;
+            }
+    
+            .category img {
+                width: 100%;
+                height: auto;
+                max-height: 150px;
+            }
+    
+            .container {
+                grid-template-columns: 1fr;
+            }
+    
+            .product {
+                padding: 15px;
+                margin: 10px;
+            }
+        }
     </style>
+    
 </head>
 <body>
     <header>
